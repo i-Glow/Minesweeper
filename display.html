@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Minesweeper</title>
+  </head>
+  <body>
+    <div class="game-menu">
+      <h4>Choose difficulty:</h4>
+      <div>
+        <button class="difficulty button">Easy</button>
+        <button class="difficulty button">Intermediate</button>
+        <button class="difficulty button">Expert</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="top">
+        <span>
+          <p>Flags:</p>
+          <h4 id="mines"></h4>
+        </span>
+        <button id="play-again" class="button">Play Again</button>
+        <span>
+          <p>Time:</p>
+          <h4 id="timer">00:00:01</h4>
+        </span>
+      </div>
+      <div class="canvas" oncontextmenu="return false;"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
