@@ -18,6 +18,7 @@ let MINE_COUNT, COLUMN_COUNT, ROW_COUNT;
 let revealedCount = 0;
 let mineList = new Set();
 let squareList;
+let gameOver = true;
 
 difficulty.forEach((btn, i) => {
   btn.addEventListener("click", () => {
@@ -133,6 +134,7 @@ function timer() {
 
 //board initialization
 function initialize() {
+  gameOver = false;
   for (let i = 1; i <= COLUMN_COUNT * ROW_COUNT; i++) {
     let square = document.createElement("div");
     square.style.width = canvasWidth / COLUMN_COUNT + "px";
@@ -296,6 +298,8 @@ function revealMines() {
 }
 
 function click() {
+  if(gameOver) return;
+  
   squareList.forEach((square) => {
     square.addEventListener("mousedown", (e) => {
       e.preventDefault();
@@ -303,6 +307,7 @@ function click() {
         if (square.classList.contains("mine")) {
           square.style.backgroundColor = "red";
           revealMines();
+          gameOver = true;
         } else if (square.revealed) {
           surroundings(Number(square.id)).forEach((surr) => {
             reveal(squareList[surr - 1]);
